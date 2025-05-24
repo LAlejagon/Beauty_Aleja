@@ -2,6 +2,9 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/utils/supabaseClient';
 import { useRouter } from 'next/navigation';
+import Header from '@/components/molecules/Header';
+import Footer from '@/components/molecules/Footer';
+import { FiLoader } from 'react-icons/fi';
 
 export default function CuentaPage() {
   const router = useRouter();
@@ -14,7 +17,7 @@ export default function CuentaPage() {
       } = await supabase.auth.getUser();
 
       if (!user) {
-        router.push('/auth/login');
+        router.push('/login');
         return;
       }
 
@@ -29,7 +32,6 @@ export default function CuentaPage() {
         return;
       }
 
-      // Redirigir según el rol
       if (profile.role === 'admin') {
         router.push('/admin');
       } else {
@@ -41,8 +43,13 @@ export default function CuentaPage() {
   }, [router]);
 
   return (
-    <div className="text-center mt-20 text-pink-600">
-      Redirigiendo a tu cuenta...
-    </div>
+    <>
+      <Header />
+      <div className="flex flex-col justify-center items-center min-h-[60vh] text-center">
+        <FiLoader className="animate-spin text-pink-600 text-4xl mb-4" />
+        <p className="text-lg text-gray-700 font-medium">Redirigiendo a tu cuenta...</p>
+      </div>
+      <Footer />
+    </>
   );
 }

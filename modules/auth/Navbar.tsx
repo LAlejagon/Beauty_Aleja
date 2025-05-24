@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { FaUserCircle } from 'react-icons/fa'
-import CartIcon from '@/components/CartIcon'
+import CartIcon from '@/modules/auth/CartIcon'
 
 
 export default function Navbar() {

@@ -1,3 +1,4 @@
+// components/ProductCard.tsx
 'use client'
 import { useCart } from '@/context/CartContext'
 
@@ -17,7 +18,7 @@ export default function ProductCard({ product }: {
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <div className="relative aspect-square bg-gray-100">
         {product.image_url ? (
-          <img
+          <img 
             src={product.image_url}
             alt={product.name}
             className="w-full h-full object-cover"
@@ -39,7 +40,7 @@ export default function ProductCard({ product }: {
             price: product.price,
             image_url: product.image_url
           })}
-          className="w-full mt-4 bg-pink-600 text-white py-2 rounded hover:bg-pink-700"
+          className="w-full mt-4 bg-pink-600 text-white py-2 rounded hover:bg-pink-700 transition-colors"
         >
           Agregar al carrito
         </button>
