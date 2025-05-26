@@ -1,14 +1,17 @@
-const nextJest = require('next/jest');
+const nextJest = require('next/jest')
 
-const createJestConfig = nextJest({ dir: './' });
+const createJestConfig = nextJest({
+  dir: './',
+})
 
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  testEnvironment: 'jsdom',
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-  },
-  testEnvironment: 'jest-environment-jsdom',
-};
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^next/navigation$': '<rootDir>/node_modules/next-router-mock',
 
-module.exports = createJestConfig(customJestConfig);
+  },
+}
+
+module.exports = createJestConfig(customJestConfig)

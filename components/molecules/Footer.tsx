@@ -3,7 +3,10 @@ import { FiInstagram, FiFacebook, FiMail, FiHeart } from 'react-icons/fi';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-purple-100 via-pink-100 to-white text-gray-700 border-t border-pink-200 pt-12 pb-8">
+    <footer 
+      className="bg-gradient-to-br from-purple-100 via-pink-100 to-white text-gray-700 border-t border-pink-200 pt-12 pb-8"
+      data-testid="footer"
+    >
       <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
         {/* Marca */}
         <div>
@@ -12,14 +15,39 @@ export default function Footer() {
             Inspirando confianza y amor propio con productos conscientes, éticos y sostenibles.
           </p>
           <div className="flex space-x-4">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <FiInstagram size={20} className="hover:scale-110 transition-transform text-[#E4405F]" />
+            <a 
+              href="https://instagram.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              data-testid="instagram-link"
+            >
+              <FiInstagram 
+                size={20} 
+                className="hover:scale-110 transition-transform text-[#E4405F]" 
+                data-testid="instagram-icon" 
+              />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FiFacebook size={20} className="hover:scale-110 transition-transform text-[#1877F2]" />
+            <a 
+              href="https://facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              data-testid="facebook-link"
+            >
+              <FiFacebook 
+                size={20} 
+                className="hover:scale-110 transition-transform text-[#1877F2]" 
+                data-testid="facebook-icon" 
+              />
             </a>
-            <a href="mailto:contacto@alejabeauty.com">
-              <FiMail size={20} className="hover:scale-110 transition-transform text-[#EA4335]" />
+            <a 
+              href="mailto:contacto@alejabeauty.com"
+              data-testid="mail-link"
+            >
+              <FiMail 
+                size={20} 
+                className="hover:scale-110 transition-transform text-[#EA4335]" 
+                data-testid="mail-icon" 
+              />
             </a>
           </div>
         </div>
@@ -55,10 +83,12 @@ export default function Footer() {
               type="email" 
               placeholder="Tu correo" 
               className="w-full px-4 py-2 rounded-full border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300"
+              data-testid="newsletter-input"
             />
             <button
               type="submit"
               className="bg-pink-600 hover:bg-pink-700 text-white px-5 py-2 rounded-full font-medium transition"
+              data-testid="subscribe-button"
             >
               Suscribirse
             </button>
@@ -67,8 +97,11 @@ export default function Footer() {
       </div>
 
       <div className="mt-10 border-t border-pink-200 pt-6 text-center text-xs text-gray-500">
-        <p>
-          © {new Date().getFullYear()} Aleja Beauty. Diseñado con <FiHeart className="inline text-red-500" /> por Alejandra Gonzalez
+        <p data-testid="copyright-text">
+          © {new Date().getFullYear()} Aleja Beauty. Diseñado con <FiHeart 
+            className="inline text-red-500" 
+            data-testid="heart-icon" 
+          /> por Alejandra Gonzalez
         </p>
       </div>
     </footer>

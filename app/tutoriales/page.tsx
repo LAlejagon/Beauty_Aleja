@@ -54,7 +54,7 @@ export default function TutorialesPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b8b]/90 to-[#d44d6e]/90 flex items-center justify-center">
           <div className="container mx-auto px-6 text-center text-white z-10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-6 animate-fade-in">
-              Tutoriales <span className="text-[#ffd3d6]">Aleja Beauty</span> <span className="text-[#ffd3d6]"></span>
+              <span data-testid="main-title">Tutoriales Aleja Beauty</span>
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl opacity-90 max-w-2xl mx-auto mb-8 animate-fade-in delay-100">
               Domina las técnicas de belleza con nuestras guías paso a paso
@@ -63,6 +63,7 @@ export default function TutorialesPage() {
               <a 
                 href="#tutoriales" 
                 className="inline-flex items-center bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 text-sm md:text-base"
+                data-testid="scroll-button"
               >
                 <FiPlay className="mr-2" size={18} />
                 Ver tutoriales
@@ -79,16 +80,17 @@ export default function TutorialesPage() {
             APRENDE CON NOSOTROS
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-light text-[#5a2a3a] mb-4 md:mb-6">
-            Explora nuestros <span className="text-[#d44d6e]">tutoriales</span>
+            <span data-testid="section-title">Explora nuestros tutoriales</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#ff6b8b] to-[#d44d6e] mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-8" data-testid="videos-container">
           {videos.map((video) => (
             <div 
               key={video.id}
               className="group relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white"
+              data-testid="video-card"
             >
               {/* Contenedor de imagen con relación de aspecto 16:9 */}
               <div className="relative pt-[56.25%] w-full overflow-hidden">
@@ -98,7 +100,7 @@ export default function TutorialesPage() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  priority={video.id <= 2} // Prioriza las primeras imágenes
+                  priority={video.id <= 2}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-3 md:p-4">
                   <span className="bg-[#d44d6e] text-white text-xs font-medium px-2 py-1 rounded flex items-center">
